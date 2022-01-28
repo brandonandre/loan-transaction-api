@@ -2,6 +2,7 @@ package ca.gc.aafc.transaction.api.entities;
 
 import ca.gc.aafc.dina.entity.DinaEntity;
 import ca.gc.aafc.dina.service.OnUpdate;
+import com.vladmihalcea.hibernate.type.array.ListArrayType;
 import com.vladmihalcea.hibernate.type.basic.PostgreSQLEnumType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,6 +30,7 @@ import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -40,9 +42,10 @@ import java.util.UUID;
 @Builder
 @NaturalIdCache
 @TypeDef(name = "pgsql_enum", typeClass = PostgreSQLEnumType.class)
+@TypeDef(name = "list-array", typeClass = ListArrayType.class)
 public class Transaction implements DinaEntity {
 
-  public enum Direction {IN, OUT};
+  public enum Direction {IN, OUT}
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -66,8 +69,20 @@ public class Transaction implements DinaEntity {
   @Size(max = 50)
   private String transactionNumber;
 
+  @Type(type = "list-array")
+  private List<String> otherIdentifiers;
+
   @Generated(value = GenerationTime.INSERT)
   private Boolean materialToBeReturned;
+
+  @Size(max = 50)
+  private String transactionType;
+  @Size(max = 50)
+  private String status;
+
+  @Size(max = 1000)
+  private String purpose;
+
 
   @PastOrPresent
   private LocalDate openedDate;

@@ -19,6 +19,7 @@
 				<constraints nullable="false" unique="true" />
 			</column>
 			<column name="transaction_number" type="varchar(50)"/>
+			<column name="other_identifiers" type="text[]"/>
 			<column name="material_direction" type="material_direction">
 				<constraints nullable="false"/>
 			</column>
@@ -26,6 +27,9 @@
 			<column name="_group" type="VARCHAR(50)">
 				<constraints nullable="false"/>
 			</column>
+			<column name="purpose" type="text"/>
+			<column name="transaction_type" type="varchar(50)"/>
+			<column name="status" type="varchar(50)"/>
 
 			<column name="opened_date" type="date"/>
 			<column name="closed_date" type="date"/>

@@ -16,6 +16,7 @@ import org.javers.core.metamodel.annotation.TypeName;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -38,7 +39,11 @@ public class TransactionDto extends AttributeMetaInfoProvider {
 
   private Transaction.Direction materialDirection;
   private String transactionNumber;
+  private List<String> otherIdentifiers;
   private Boolean materialToBeReturned;
+  private String purpose;
+  private String transactionType;
+  private String status;
 
   private LocalDate openedDate;
   private LocalDate closedDate;
