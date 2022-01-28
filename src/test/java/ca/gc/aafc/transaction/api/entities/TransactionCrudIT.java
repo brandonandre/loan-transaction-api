@@ -24,6 +24,7 @@ public class TransactionCrudIT extends BaseIntegrationTest {
     assertNull(newTransaction.getId());
     transactionService.createAndFlush(newTransaction);
     assertNotNull(newTransaction.getId());
+    assertNotNull(newTransaction.getMaterialToBeReturned());
 
     //cleanup
     transactionService.delete(newTransaction);

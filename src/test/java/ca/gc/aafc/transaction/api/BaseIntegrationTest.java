@@ -13,7 +13,7 @@ import java.util.Properties;
 @SpringBootTest(classes = {TransactionModuleApiLauncher.class, BaseIntegrationTest.TestConfig.class})
 @TestPropertySource(properties = "spring.config.additional-location=classpath:application-test.yml")
 @ContextConfiguration(initializers = { PostgresTestContainerInitializer.class })
-public abstract class BaseIntegrationTest {
+public class BaseIntegrationTest {
 
   @TestConfiguration
   public static class TestConfig {
