@@ -45,7 +45,7 @@ import java.util.UUID;
 @TypeDef(name = "list-array", typeClass = ListArrayType.class)
 public class Transaction implements DinaEntity {
 
-  public enum Direction {IN, OUT}
+  public enum Direction { IN, OUT }
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
